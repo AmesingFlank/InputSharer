@@ -1,22 +1,34 @@
-from pynput.keyboard import Key, Controller
+from pynput.keyboard import Key, Controller,KeyCode
+from flask import Flask, request
+import sys
+import datetime
 
-keyboard = Controller()
+start_time = None
 
-# Press and release space
-keyboard.press(Key.space)
-keyboard.release(Key.space)
+app = Flask(__name__)
 
-# Type a lower case A; this will work even if no key on the
-# physical keyboard is labelled 'A'
-keyboard.press('a')
-keyboard.release('a')
 
-# Type two upper case As
-keyboard.press('A')
-keyboard.release('A')
-with keyboard.pressed(Key.shift):
-    keyboard.press('a')
-    keyboard.release('a')
+@app.route("/sendKey")
+def sendStartTime():
+    key = request.args.get('key')
+    key = int(key)
+    key_code = KeyCode(key)
+    print("Received:  ",key )
+    return "ok"
 
-# Type 'Hello World' using the shortcut type method
-keyboard.type('Hello World')
+
+
+def input_key():
+
+    keyboard = Controller()
+
+    # Press and release space
+    keyboard.press(KeyCode(vk=55))
+    keyboard.press(KeyCode(vk=49))
+
+    keyboard.release(KeyCode(vk=55))
+    keyboard.release(KeyCode(vk=49))
+    
+if __name__ == "__main__":
+    input_key()
+    #app.run("0.0.0.0","2533")
