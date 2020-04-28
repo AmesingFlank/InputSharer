@@ -9,6 +9,8 @@ A,0,65
 colon,41,186
 quote,39,222
 rightAlt,61,18
+leftCmd,55,91
+rightCmd,54,92
 fn,63,17, // for now, the mac fn is mapped to control on windows
 rbKeyUp,126,38,103,
 rbKeyDown,125,40,108,
