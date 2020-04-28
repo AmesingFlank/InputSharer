@@ -6,6 +6,4 @@ The current implementation assumes that the sender is a Mac, and the receiver is
 
 On the receiver, run "python receiver.py"
 
-On the sender, run "python3 {reciver id+port}"
-
-The receiver should be a Windows machine. It shou
+On the sender, run "python3 {receiver id+port}"
